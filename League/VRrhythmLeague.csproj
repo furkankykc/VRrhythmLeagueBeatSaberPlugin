@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{19E76954-2EBA-4761-8AD4-1425CC29EC0E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VRrhythmLeague</RootNamespace>
+    <AssemblyName>VRrhythmLeague</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;LOCALRADIO; UNITY_STANDALONE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;UNITY_STANDALONE</DefineConstants>
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Client.cs" />
+    <Compile Include="Data\BeatSaverAPIResult.cs" />
+    <Compile Include="Data\ExtraPlayerFlags.cs" />
+    <Compile Include="Interop\BeatSaverVotingInterop.cs" />
+    <Compile Include="Interop\IDismissable.cs" />
+    <Compile Include="Interop\SteamRichPresence.cs" />
+    <Compile Include="IPAUtilities\Accessor.cs" />
+    <Compile Include="IPAUtilities\ReflectionUtil.cs" />
+    <Compile Include="LeagueAPI\CustomCertificateHandler.cs" />
+    <Compile Include="LeagueAPI\CustomBeatmapLevelCollectionSO.cs" />
+    <Compile Include="LeagueAPI\CustomPlaylistSO.cs" />
+    <Compile Include="LeagueAPI\LeagueAPI.cs" />
+    <Compile Include="LeagueAPI\LeagueRequestHandler.cs" />
+    <Compile Include="LeagueAPI\PlaylistCollectionOverride.cs" />
+    <Compile Include="Misc\ModelSaberAPI.cs" />
+    <Compile Include="Data\PlayerInfo.cs" />
+    <Compile Include="Data\RoomInfo.cs" />
+    <Compile Include="Data\RoomPreset.cs" />
+    <Compile Include="Data\RoomSettings.cs" />
+    <Compile Include="Data\ServerRepository.cs" />
+    <Compile Include="Data\SongInfo.cs" />
+    <Compile Include="Data\LevelOptionsInfo.cs" />
+    <Compile Include="InGameOnlineController.cs" />
+    <Compile Include="Misc\ControllersHelper.cs" />
+    <Compile Include="Misc\ScrappedData.cs" />
+    <Compile Include="Data\ScrappedSong.cs" />
+    <Compile Include="Misc\SimpleJSON.cs" />
+    <Compile Include="Interop\BeatSaverDownloaderInterop.cs" />
+    <Compile Include="Misc\Sprites.cs" />
+    <Compile Include="Misc\Config.cs" />
+    <Compile Include="Misc\CustomExtensions.cs" />
+    <Compile Include="Misc\HexConverter.cs" />
+    <Compile Include="Misc\LoadScripts.cs" />
+    <Compile Include="Misc\PresetsCollection.cs" />
+    <Compile Include="Misc\Serialization.cs" />
+    <Compile Include="Misc\SongDownloader.cs" />
+    <Compile Include="Misc\SongSeekBeatmapHandler.cs" />
+    <Compile Include="Misc\TableViewHelper.cs" />
+    <Compile Include="Interop\ScoreSaberInterop.cs" />
+    <Compile Include="OverriddenClasses\CustomMoreSongsFlowCoordinator.cs" />
+    <Compile Include="OverriddenClasses\HarmonyPatches.cs" />
+    <Compile Include="OverriddenClasses\OnlineAudioTimeController.cs" />
+    <Compile Include="OverriddenClasses\OnlineBeatmapCallbackController.cs" />
+    <Compile Include="OverriddenClasses\OnlineBeatmapObjectManager.cs" />
+    <Compile Include="OverriddenClasses\OnlineBeatmapSpawnController.cs" />
+    <Compile Include="OverriddenClasses\OnlineVRController.cs" />
+    <Compile Include="OnlinePlayerController.cs" />
+    <Compile Include="PlayerInfoDisplay.cs" />
+    <Compile Include="Plugin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SpectatingController.cs" />
+    <Compile Include="UI\FlowCoordinators\LeaguePlaylistFlowCoordinator.cs" />
+    <Compile Include="UI\FlowCoordinators\ModeSelectionFlowCoordinator.cs" />
+    <Compile Include="UI\FlowCoordinators\RoomCreationFlowCoordinator.cs" />
+    <Compile Include="UI\FlowCoordinators\RoomFlowCoordinator.cs" />
+    <Compile Include="UI\FlowCoordinators\ServerHubFlowCoordinator.cs" />
+    <Compile Include="UI\PluginUI.cs" />
+    <Compile Include="UI\Settings.cs" />
+    <Compile Include="UI\ViewControllers\CreateRoomScreen\PresetsListViewController.cs" />
+    <Compile Include="UI\ViewControllers\CreateRoomScreen\RoomCreationServerHubsListViewController.cs" />
+    <Compile Include="UI\ViewControllers\CreateRoomScreen\MainRoomCreationViewController.cs" />
+    <Compile Include="UI\ViewControllers\ModeSelectionScreen\ModeSelectionViewController.cs" />
+    <Compile Include="UI\ViewControllers\RoomScreen\DifficultySelectionViewController2.cs" />
+    <Compile Include="UI\ViewControllers\RoomScreen\DifficultySelectionViewController.cs" />
+    <Compile Include="UI\ViewControllers\RoomScreen\SeasonInfoViewController.cs" />
+    <Compile Include="UI\ViewControllers\RoomScreen\HighScoresViewController.cs" />
+    <Compile Include="UI\ViewControllers\RoomScreen\PlayingNowViewController.cs" />
+    <Compile Include="UI\ViewControllers\RoomScreen\MultiplayerResultsViewController.cs" />
+    <Compile Include="UI\ViewControllers\RoomScreen\LevelPacksUIViewController.cs" />
+    <Compile Include="UI\ViewControllers\RoomScreen\QuickSettingsViewController.cs" />
+    <Compile Include="UI\ViewControllers\RoomScreen\PlayerManagementViewController.cs" />
+    <Compile Include="UI\ViewControllers\RoomScreen\RequestsViewController.cs" />
+    <Compile Include="UI\ViewControllers\RoomScreen\SongSelectionViewControllerXcopy.cs" />
+    <Compile Include="UI\ViewControllers\RoomScreen\SongSelectionViewController.cs" />
+    <Compile Include="UI\ViewControllers\RoomScreen\RoomNavigationController.cs" />
+    <Compile Include="UI\ViewControllers\ServerHubScreen\RoomListViewController.cs" />
+    <Compile Include="VOIP\AudioUtils.cs" />
+    <Compile Include="VOIP\FifoFloatStream.cs" />
+    <Compile Include="VOIP\SpeexCodex.cs" />
+    <Compile Include="Data\VoipFragment.cs" />
+    <Compile Include="VOIP\VoipListener.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Shader.asset" />
+    <EmbeddedResource Include="manifest.json" />
+    <EmbeddedResource Include="UI\SettingsView.bsml">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewControllers\CreateRoomScreen\PresetsListViewController.bsml">
+      <DependentUpon>PresetsListViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewControllers\CreateRoomScreen\RoomCreationServerHubsListViewController.bsml">
+      <DependentUpon>RoomCreationServerHubsListViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewControllers\ModeSelectionScreen\ModeSelectionViewController.bsml">
+      <DependentUpon>ModeSelectionViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewControllers\RoomScreen\MultiplayerResultsViewController.bsml">
+      <DependentUpon>MultiplayerResultsViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewControllers\RoomScreen\RequestsViewController.bsml">
+      <DependentUpon>RequestsViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewControllers\RoomScreen\SongSelectionViewController.bsml">
+      <DependentUpon>SongSelectionViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewControllers\ServerHubScreen\RoomListViewController.bsml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <DependentUpon>RoomListViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <EmbeddedResource Include="UI\ViewControllers\CreateRoomScreen\MainRoomCreationViewController.bsml">
+      <DependentUpon>MainRoomCreationViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewControllers\RoomScreen\QuickSettingsViewController.bsml">
+      <DependentUpon>QuickSettingsViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewControllers\RoomScreen\LevelPacksUIViewController.bsml">
+      <DependentUpon>LevelPacksUIViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewControllers\RoomScreen\DifficultySelectionViewController.bsml">
+      <DependentUpon>DifficultySelectionViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewControllers\RoomScreen\PlayingNowViewController.bsml">
+      <DependentUpon>PlayingNowViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewControllers\RoomScreen\PlayerManagementViewController.bsml">
+      <DependentUpon>PlayerManagementViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewControllers\RoomScreen\HighScoresViewController.bsml" />
+    <EmbeddedResource Include="UI\ViewControllers\RoomScreen\SeasonInfoViewController.bsml" />
+    <EmbeddedResource Include="UI\ViewControllers\RoomScreen\SongSelectionViewControllerXcopy.bsml" />
+    <EmbeddedResource Include="UI\ViewControllers\main-left-screen.bsml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="UI\ViewControllers\RoomScreen\DifficultySelectionViewController2.bsml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\LockedRoom.png" />
+    <EmbeddedResource Include="Assets\OnlineIcon.png" />
+    <EmbeddedResource Include="Assets\RadioIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\WhitePixel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\AddToFavorites.png" />
+    <EmbeddedResource Include="Assets\RemoveFromFavorites.png" />
+    <EmbeddedResource Include="Assets\ThumbDown.png" />
+    <EmbeddedResource Include="Assets\ThumbUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\RoomsIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\SpeakerIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\RefreshIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\RatingIcon.png" />
+    <EmbeddedResource Include="Assets\StarIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\DoubleArrowIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony, Version=2.0.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="BeatSaverDownloader, Version=5.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\BeatSaverDownloader.dll</HintPath>
+    </Reference>
+    <Reference Include="BeatSaverVoting, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\BeatSaverVoting.dll</HintPath>
+    </Reference>
+    <Reference Include="BSML, Version=1.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\BSML.dll</HintPath>
+    </Reference>
+    <Reference Include="BS_Utils, Version=1.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\BS_Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Colors, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\Colors.dll</HintPath>
+    </Reference>
+    <Reference Include="HMLib, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\HMLib.dll</HintPath>
+    </Reference>
+    <Reference Include="HMUI, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\HMUI.dll</HintPath>
+    </Reference>
+    <Reference Include="IPA.Loader, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\IPA.Loader.dll</HintPath>
+    </Reference>
+    <Reference Include="Lidgren.Network, Version=2012.1.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\Lidgren.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="Main, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\Main.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NSpeex, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\NSpeex.dll</HintPath>
+    </Reference>
+    <Reference Include="Oculus.VR, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\Oculus.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="Polyglot, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\Polyglot.dll</HintPath>
+    </Reference>
+    <Reference Include="ScoreSaber, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\ScoreSaber.dll</HintPath>
+    </Reference>
+    <Reference Include="SemVer, Version=1.2.2.0, Culture=neutral, PublicKeyToken=a89bb7dc6f7a145c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\SemVer.dll</HintPath>
+    </Reference>
+    <Reference Include="SongCore, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\SongCore.dll</HintPath>
+    </Reference>
+    <Reference Include="SteamVR, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\SteamVR.dll</HintPath>
+    </Reference>
+    <Reference Include="Steamworks.NET">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\Steamworks.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.IO.Compression, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.IO.Compression.FileSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.XRModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="VRUI, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\VRUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Refs\Zenject.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\vrlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\vrthmlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BSML.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /y $(TargetDir)VRrhythmLeague.dll  "C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Plugins"
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

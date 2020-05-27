@@ -1,0 +1,55 @@
+﻿<bg>
+  <text id="ping-text" text="ALPHA MODE" align="Left" anchor-pos-y="33.5" anchor-pos-x="40" size-delta-x="20" />
+  <tab-selector tab-tag='management-tag' anchor-pos-y='-3' />
+  
+  <tab tags='management-tag' tab-name='Season Info'>
+    <img id='league-bg-banner' src='VRrhythmLeague.Assets.vrlogo.png' anchor-min-x='0.042' anchor-max-x='0.958' size-delta-x='0' anchor-min-y='0.1525' anchor-max-y='0.7125' size-delta-y='0'>
+      <!--<img src='VRrhythmLeague.Assets.vrlogo.png' preserve-aspect="true" anchor-min-x='0.042' anchor-max-x='0.958' size-delta-x='0' anchor-min-y='0.1525' anchor-max-y='0.7125' size-delta-y='0'/>-->
+    </img>
+
+<!--
+Unconstrained
+PreferredSize
+anchor-min-x='0' anchor-max-x='0.5' anchor-min-y='0' anchor-max-y='1'
+pad-left ='5'
+        <img src='VRrhythmLeague.Assets.vrlogo.png' preserve-aspect="false" pref-height ="1" />
+-->
+
+<grid pad-top='20'  pad-left ='5' cell-size-y='35' cell-size-x='55' spacing-x='5' spacing-y='0' align='Center'>
+
+  <raw-image id='season-cover' src='VRrhythmLeague.Assets.vrthmlogo.png' preserve-aspect="true" pref-height ="1" />
+        <vertical spacing-y='0' align='Top'>
+          <text id='season-name' font-size='6' text='Season Name' />
+          <text id='current-week' font-size='4' text='Current Week is 1' />
+          <text font-size='5' text='Finishing Date' />
+          <text id='finishing-date' font-size='4' text='12.05.2020' />
+
+        </vertical>
+        
+        <vertical horizontal-fit="Unconstrained">
+          <!--<horizontal vertical-fit="Unconstrained">
+            <text-page text='This is alpha mode description for testing This is alpha mode description for testing This is alpha mode description for testing This is alpha mode description for testing' />
+
+          </horizontal>-->
+           <horizontal vertical-fit="Unconstrained">
+             <text id="season-desc" text='This is alpha mode description This is alpha mode description This is alpha mode description' />
+
+           </horizontal>
+
+
+        </vertical>
+        <stack id="controls-rect" pref-height="22.5">
+          <vertical align="Center">
+            <button id='apply-button' pref-width='36' pref-height='9' text='APPLY' on-click='apply-pressed'/>
+
+          </vertical>
+          <raw-image id="apply-blocker" src='#RoundRectPanel' size-delta-x="95" size-delta-y="11" anchor-pos-y="-5.5"/>
+        </stack>
+      </grid>
+      </tab>
+
+  <tab tags='management-tag' tab-name='Season LeaderBoard'>
+    <leaderboard id='leaderboard-table' anchor-min-x='0.075' anchor-max-x='0.925' size-delta-x='0' anchor-pos-x='0' />
+  </tab>
+
+</bg>
